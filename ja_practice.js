@@ -10,3 +10,9 @@ function myF(a, b) {
     return (5/9) * (fahrenheit-32);
   }
   var text = "The temperature is " + toCelsius(77) + " Celsius";
+
+  const maMap = new Map()
+  maMap.set(100, 'hi');
+  console.log(maMap)
+
+  const myArray = [1, 2, 3]

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Reduce!</title>
+    <link rel="stylesheet" href="././base.css" />
+  </head>
+
+  <body>
+    <script>
+      const text = `
+      Skip to content
+      Pull requests
+      Issues
+      Marketplace
+      Explore
+      @Ismartyx
+      wesbos /
+      Wes-Bos-Captions
+      Public
+
+      52
+      438
+
+          299
+
+      Code
+      Issues 6
+      Pull requests 4
+      Actions
+      Projects
+      Wiki
+      Security
+
+          Insights
+
+      Wes-Bos-Captions/BJS/
+      Latest commit
+      @wesbos
+      wesbos Merge pull request #75 from P45QU10U/patch-4
+      066b9c5
+      on Nov 4
+      Git stats
+
+          History
+
+      Files
+      Type
+      Name
+      Latest commit message
+      Commit time
+      . .
+      00 - Welcome.vtt
+      bjs
+      2 years ago
+      01 - Welcome.vtt
+      bjs
+      2 years ago
+      02 - Browser, Editor and Terminal Setup.vtt
+      All BJS Captions
+      2 years ago
+      03 - Running and Loading JS.vtt
+      typo corrections
+      2 years ago
+      04 - Variables and Statements.vtt
+      All BJS Captions
+      2 years ago
+      05 - Code Quality Tooling with Prettier and ESLint.vtt
+      All BJS Captions
+      2 years ago
+      06 - Types - Introduction.vtt
+      All BJS Captions
+      2 years ago
+      07 - Types - Strings.vtt
+      All BJS Captions
+      2 years ago
+      08 - Types - Numbers.vtt
+      All BJS Captions
+      2 years ago
+      09 - Types - Objects.vtt
+      West Boss => Wes Bos
+      9 months ago
+      10 - Types - null and undefined.vtt
+      All BJS Captions
+      2 years ago
+      11 - Types - Booleans and Equality.vtt
+      All BJS Captions
+      2 years ago
+      12 - Functions - Built in.vtt
+      All BJS Captions
+      2 years ago
+      13 - Functions - Custom.vtt
+      All BJS Captions
+      2 years ago
+      14 - Functions - Parameters and Arguments.vtt
+      Updated captions after edit
+      2 years ago
+      15 - Different Ways to Declare Functions.vtt
+      All BJS Captions
+      2 years ago
+      16 - Debugging Tools.vtt
+      All BJS Captions
+      2 years ago
+      17 - Scope.vtt
+      All BJS Captions
+      2 years ago
+      18 - Hoisting.vtt
+      Updated captions after edit
+      2 years ago
+      19 - Closures.vtt
+      All BJS Captions
+      2 years ago
+      20 - The DOM - Introduction to the document.vtt
+      All BJS Captions
+      2 years ago
+      21 - The DOM - Selecting Elements.vtt
+      All BJS Captions
+      2 years ago
+      22 - The DOM - Element Properties and Methods.vtt
+      Updated captions after edit
+      2 years ago
+      23 - The DOM - Working with Classes.vtt
+      Updated captions after edit
+      2 years ago
+      24 - The DOM - Build in and Custom Data Attributes.vtt
+      West Boss => Wes Bos
+      9 months ago
+      25 - The DOM - Creating HTML.vtt
+      All BJS Captions
+      2 years ago
+      26 - The DOM - HTML from Strings and XSS.vtt
+      All BJS Captions
+      2 years ago
+      27 - The DOM - Traversing and Removing Nodes.vtt
+      All BJS Captions
+      2 years ago
+      28 - The DOM - CARDIO.vtt
+      West Boss => Wes Bos
+      9 months ago
+      29 - Events - Event Listener.vtt
+      All BJS Captions
+      2 years ago
+      30 - Events - targets, bubbling, propagation and capture.vtt
+      All BJS Captions
+      2 years ago
+      31 - Events - Prevent Default and Form Events.vtt
+      All BJS Captions
+      2 years ago
+      32 - Events - Accesibility Gotchas and Keyboard Codes.vtt
+      All BJS Captions
+      2 years ago
+      33 - Etch-a-Sketch.vtt
+      All BJS Captions
+      2 years ago
+      34 - Click Outside Modal.vtt
+      All BJS Captions
+      2 years ago
+      35 - Scroll Events and Intersection Observer.vtt
+      All BJS Captions
+      2 years ago
+      36 - Tabs.vtt
+      All BJS Captions
+      2 years ago
+      37 - BEDMAS.vtt
+      All BJS Captions
+      2 years ago
+      38 - Flow Control - If Statements, Function Returns, Truthy, Falsy.vtt
+      All BJS Captions
+      2 years ago
+      39 - Coercion, Ternaries and Conditional Abuse.vtt
+      All BJS Captions
+      2 years ago
+      40 - Case Switch and Animating a Turtle with CSS Variables.vtt
+      All BJS Captions
+      2 years ago
+      41 - Intervals and Timers.vtt
+      All BJS Captions
+      2 years ago
+      42 - Objects.vtt
+      All BJS Captions
+      2 years ago
+      43 - Object Reference vs Values.vtt
+      All BJS Captions
+      2 years ago
+      44 - Maps.vtt
+      All BJS Captions
+      2 years ago
+      45 - Arrays.vtt
+      All BJS Captions
+      2 years ago
+      46 - Array Cardio - Static Methods.vtt
+      All BJS Captions
+      2 years ago
+      47 - Array Cardio - Instance Methods.vtt
+      All BJS Captions
+      2 years ago
+      48 - Array Cardio - Callback Methods and Function Generation.vtt
+      All BJS Captions
+      2 years ago
+      50 - Looping and Iterating - Mapping.vtt
+      All BJS Captions
+      2 years ago
+      51 - Looping and Iterating - Filter, Find and Higher Order Functions.vtt
+      All BJS Captions
+      2 years ago
+      52 - Looping and Iterating - Reduce.vtt
+      All BJS Captions
+      2 years ago
+      53 - Looping and Iterating - Reduce Exercise.vtt
+      All BJS Captions
+      2 years ago
+      54 - Looping and Iterating - for, for in, for of and while Loops.vtt
+      All BJS Captions
+      2 years ago
+      55 - Face Detection and Censorship.vtt
+      All BJS Captions
+      2 years ago
+      56 - Sarcastic Text Generator.vtt
+      All BJS Captions
+      2 years ago
+      57 - Shopping Form with Custom Events, Delegation and localstorage.vtt
+      All BJS Captions
+      2 years ago
+      58 - Building a Gallery Exercise.vtt
+      All BJS Captions
+      2 years ago
+      59 - Bulding a Slider.vtt
+      All BJS Captions
+      2 years ago
+      60 - The New Keyword.vtt
+      All BJS Captions
+      2 years ago
+      61 - The this Keyword.vtt
+      West Boss => Wes Bos
+      9 months ago
+      62 - Prototype Refactor of the Gallery Exercise.vtt
+      All BJS Captions
+      2 years ago
+      63 - Prototypes and Prototypal Inheritance.vtt
+      All BJS Captions
+      2 years ago
+      64 - Prototype Refactor of the Slider Exercise.vtt
+      All BJS Captions
+      2 years ago
+      65 - bind, call and apply.vtt
+      West Boss => Wes Bos
+      9 months ago
+      66 - The Event Loop and Callback Hell.vtt
+      All BJS Captions
+      2 years ago
+      67 - Promises.vtt
+      All BJS Captions
+      2 years ago
+      68 - Promises - Error Handling.vtt
+      All BJS Captions
+      2 years ago
+      69 - Refactoring Callback Hell to Promise Land.vtt
+      All BJS Captions
+      2 years ago
+      70 - Async Await.vtt
+      All BJS Captions
+      2 years ago
+      71 - Async Await Error Handling.vtt
+      All BJS Captions
+      2 years ago
+      72 - Async Await Prompt UI.vtt
+      All BJS Captions
+      2 years ago
+      73 - Async Typer UI - two ways.vtt
+      All BJS Captions
+      2 years ago
+      74 - Ajax and APIs.vtt
+      All BJS Captions
+      2 years ago
+      75 - CORS and Recipes.vtt
+      All BJS Captions
+      2 years ago
+      76 - Dad Jokes.vtt
+      All BJS Captions
+      2 years ago
+      77 - Currency Converter.vtt
+      All BJS Captions
+      2 years ago
+      78 - Modules.vtt
+      West Boss => Wes Bos
+      9 months ago
+      79 - Currency Modules Refactor 2.vtt
+      All BJS Captions
+      2 years ago
+      79 - Currency Modules Refactor.vtt
+      All BJS Captions
+      2 years ago
+      80 - Dad Jokes Modules Refactor.vtt
+      All BJS Captions
+      2 years ago
+      81 - Bundling and Building with Parcel.vtt
+      All BJS Captions
+      2 years ago
+      82 - using open source npm packages.vtt
+      All BJS Captions
+      2 years ago
+      83 - Security.vtt
+      All BJS Captions
+      2 years ago
+      84 - Web Speech Colours Game.vtt
+      All BJS Captions
+      2 years ago
+      85 - Audio Visualization.vtt
+      All BJS Captions
+      2 years ago
+
+          © 2021 GitHub, Inc.
+
+          Terms
+          Privacy
+          Security
+          Status
+          Docs
+          Contact GitHub
+          Pricing
+          API
+          Training
+          Blog
+          About
+
+      `;
+
+      function matchChar(char) {
+        return char.match(/[a-z0-9]/i);
+      }
+
+      const lowercase = (char) => char.toLowerCase();
+
+      function counter(counts, char) {
+        counts[char] ? (counts[char] = counts[char] + 1) : (counts[char] = 1);
+        console.log(`prev ${counts}`);
+        console.log(`current ${char}`);
+        console.log("---------");
+        return counts;
+      }
+
+      const array1 = [1, 2, 3, 4];
+      const reduce = array1.reduce(counter, {});
+      console.log(reduce);
+
+      const result = text
+        .split("")
+        .filter(matchChar)
+        .map(lowercase)
+        .reduce(counter, {});
+      console.log(result);
+
+      function sortByValue(a, b) {
+        return a[1] - b[1];
+      }
+      const sortedResult = Object.entries(result).sort(sortByValue);
+      console.log(sortedResult);
+    </script>
+  </body>
+</html>
