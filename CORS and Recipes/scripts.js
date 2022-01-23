@@ -1,45 +1,43 @@
-const baseEndpoint = 'http://www.recipepuppy.com/api';
-const proxy = `https://cors-anywhere.herokuapp.com/`;
+const base = 'https://www.themealdb.com/api/json/v1/1/search.php'
+const proxy = `https://cors-anywhere.herokuapp.com/`
 const form = document.querySelector('form.search');
-const recipesGrid = document.querySelector('.recipes');
+const mealsGrid = document.querySelector('.mealsgrid');
 
-async function fetchRecipes(query) {
-  const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
+async function fetchMeals(query) {
+  const res = await fetch(`${proxy}${base}?f=${query}`);
   const data = await res.json();
   return data;
 }
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  const el = event.currentTarget;
-  console.log(form.query.value);
-  fetchAndDisplay(form.query.value);
+async function handleSubmit(e) {
+  e.preventDefault();
+  const el = e.currentTarget;
+  console.log(el.query.value);
+  fetchAndDisplay(form.query.value)
 }
 
 async function fetchAndDisplay(query) {
-  // turn the form off
   form.submit.disabled = true;
-  // submit the search
-  const recipes = await fetchRecipes(query);
-  console.log(recipes);
+  const searchMeals = await fetchMeals(query);
+  console.log(searchMeals);
   form.submit.disabled = false;
-  displayRecipes(recipes.results);
+  displayMeals(searchMeals.meals);
 }
 
-function displayRecipes(recipes) {
-  console.log('Creating HTML');
-  const html = recipes.map(
-    recipe => `<div class="recipe">
-      <h2>${recipe.title}</h2>
-      <p>${recipe.ingredients}</p>
-      ${recipe.thumbnail &&
-        `<img src="${recipe.thumbnail}" alt="${recipe.title}"/>`}
-      <a href="${recipe.href}">View Recipe →</a>
+function displayMeals(searchMeals) {
+  const html = searchMeals.map(
+    meal => `<div class="meal">
+    <h2>${meal.strMeal}</h2>
+    <p>${meal.strInstructions}</p>
+    ${meal.strMealThumb &&
+      `<img src="${meal.strMealThumb}" alt="${meal.idMeal}"/>`}
+    <a href="${meal.strYoutube}">View Recipe →</a>
     </div>`
-  );
-  recipesGrid.innerHTML = html.join('');
+  )
+  mealsGrid.innerHTML = html.join('');
 }
 
-form.addEventListener('submit', handleSubmit);
-// on page load run it with pizza
-fetchAndDisplay('pizza');
+
+form.addEventListener('submit',handleSubmit);
+
+fetchAndDisplay('a');
