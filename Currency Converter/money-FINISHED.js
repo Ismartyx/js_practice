@@ -1,9 +1,9 @@
 const fromSelect = document.querySelector('[name="from_currency"]');
 const fromInput = document.querySelector('[name="from_amount"]');
 const toSelect = document.querySelector('[name="to_currency"]');
-const endpoint = 'http://api.exchangeratesapi.io/v1/latest?access_key=30ae4d61466474694c96da3657c85273&format=1';
 const toEl = document.querySelector('.to_amount');
 const form = document.querySelector('.app form');
+const endpoint = 'https://api.exchangeratesapi.io/latest';
 const ratesByBase = {};
 
 const currencies = {
@@ -42,24 +42,32 @@ const currencies = {
 };
 
 function generateOptions(options) {
-  return Object.entries(options).map(([cC, cN]) => {
-    return `<option value="${cC}">${cC} - ${cN}</option>`
-  }).join('');
+  return Object.entries(options)
+    .map(
+      ([currencyCode, currencyName]) =>
+        `<option value="${currencyCode}">${currencyCode} - ${currencyName}</option>`
+    )
+    .join('');
 }
 
 async function fetchRates(base = 'USD') {
-  const res = await fetch(endpoint);
-  const rates = await (await res).json();
+  const res = await fetch(`${endpoint}?base=${base}`);
+  const rates = await res.json();
   return rates;
 }
 
 async function convert(amount, from, to) {
-  if(!ratesByBase[from]) {
-    console.log(`we dont have ${from} to convert to ${to}`);
+  // first check if we even have the rates to convert from that currency
+  if (!ratesByBase[from]) {
+    console.log(
+      `Oh no, we dont have ${from} to convert to ${to}. So gets go get it!`
+    );
+    const rates = await fetchRates(from);
+    console.log(rates);
+    // store them for next time
+    ratesByBase[from] = rates;
   }
-  const rates = await fetchRates(from);
-  console.log(rates);
-  ratesByBase[from] = rates;
+  // convert that amount that they passed it
   const rate = ratesByBase[from].rates[to];
   const convertedAmount = rate * amount;
   console.log(`${amount} ${from} is ${convertedAmount} in ${to}`);
@@ -72,13 +80,18 @@ function formatCurrency(amount, currency) {
     currency,
   }).format(amount);
 }
-
 async function handleInput(e) {
-  const rawAmount = await convert(fromInput.value, fromSelect.value, toSelect.value);
-  console.log(rawAmount);
+  const rawAmount = await convert(
+    fromInput.value,
+    fromSelect.value,
+    toSelect.value
+  );
   toEl.textContent = formatCurrency(rawAmount, toSelect.value);
 }
+
 const optionsHTML = generateOptions(currencies);
+// populate the options elements
 fromSelect.innerHTML = optionsHTML;
 toSelect.innerHTML = optionsHTML;
+
 form.addEventListener('input', handleInput);
